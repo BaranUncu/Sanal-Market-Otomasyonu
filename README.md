@@ -1,38 +1,43 @@
-﻿# 🛒 Sanal Market Otomasyonu (Retail Management System)
+﻿# 🛒 Retail Management System (Sanal Market)
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET_Framework-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![SQL Server](https://img.shields.io/badge/Database-SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 
-Bu proje, temel CRUD işlemlerinin ötesine geçerek güncel kullanıcı deneyimi (UX) standartlarını ve veri güvenliği prensiplerini uygulayan, perakende sektörüne yönelik kurumsal bir masaüstü (Windows Forms) e-ticaret otomasyonudur.
+This project is a corporate desktop (Windows Forms) e-commerce automation tailored for the retail sector. It goes beyond basic CRUD operations to implement modern user experience (UX) standards and data security principles.
 
 ---
 
-## 🔐 Yönetici (Admin) Girişi ve Test Hesapları
+## 🔐 Administrator (Admin) Login and Test Accounts
 
-Sistemin Yönetici Kontrol Merkezi'ni ve kilitli modüllerini test edebilmeniz için veritabanında varsayılan bir admin hesabı tanımlanmıştır:
+A default admin account is configured in the database so you can easily test the Administrator Control Center and restricted modules:
 
-- **E-Posta:** `admin@admin.com`
-- **Şifre:** `666666`
+- **Email:** `admin@admin.com`
+- **Password:** `666666`
 
-*(Alternatif: Sisteme yeni bir kullanıcı olarak kayıt olup, SQL Server üzerinden `Kullanicilar` tablosundaki `Yetki` değerini `1` (True) yaparak o hesaba anında admin yetkisi tanımlayabilirsiniz.)*
-
----
-
-## 🏗️ Proje Mimarisi ve Öne Çıkan Özellikler
-
-- **Kriptografik Güvenlik (SHA-256):** Veri güvenliği amacıyla kayıt ve giriş aşamalarında kullanıcı şifreleri düz metin (plain-text) yerine, uçtan uca SHA-256 algoritması ile hash'lenerek veritabanında saklanmaktadır.
-- **Merkezi Veritabanı Yönetimi:** Tüm SQL işlemleri ADO.NET mimarisiyle `DatabaseHelper.cs` sınıfı üzerinden merkezi olarak yönetilerek kod tekrarı (DRY) engellenmiştir.
-- **Dinamik Sepet Modülü:** Sepete eklenen ürünlerin buton yapısı anlık olarak `[-] [Adet] [+]` formatına dönüşür ve sepet tutarı dinamik olarak güncellenir.
-- **İlişkisel Veri (Cascading):** Adres yönetiminde, İl seçimine bağlı olarak İlçeler veritabanından dinamik ve filtreli bir şekilde çekilir.
-- **Arayüz Koruması:** Yönetici panelindeki `DataGridView` tabloları son kullanıcı müdahalesine karşı kilitlenerek tasarım bütünlüğü ve veri güvenliği sağlanmıştır.
+*(Alternative: You can register as a new user from the login screen and instantly grant admin privileges by setting the `Yetki` (Authority) value to `1` (True) in the `Kullanicilar` table via SQL Server.)*
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma
+## 🏗️ Project Architecture and Key Features
 
-Sistemi kararlı bir şekilde kendi bilgisayarınızda ayağa kaldırmak için aşağıdaki adımları izlemeniz yeterlidir:
+- **Cryptographic Security (SHA-256):** To ensure data security, user passwords are not stored as plain text. Instead, they are hashed end-to-end using the SHA-256 algorithm during the registration and login phases.
+- **Centralized Database Management:** All SQL operations are centrally managed through the `DatabaseHelper.cs` class using the ADO.NET architecture, strictly adhering to the DRY (Don't Repeat Yourself) principle.
+- **Dynamic Shopping Cart Module:** The button structure of items added to the cart instantly transforms into a `[-] [Quantity] [+]` format, and the total cart amount is updated dynamically.
+- **Relational Data (Cascading):** In address management, districts are fetched dynamically and filtered from the database based on the selected city.
+- **UI Protection:** `DataGridView` tables in the admin panel are locked against end-user manipulation to ensure design integrity and data security.
 
-1. **Veritabanını Yükleyin:** Proje klasörünün içindeki `Database` klasöründe yer alan **`MarketDB_Kurulum.sql`** dosyasını SQL Server Management Studio (SSMS) üzerinden açın ve `Execute` (Çalıştır) butonuna basın. Bu işlem tüm tabloları ve varsayılan yönetici hesabını kuracaktır.
-2. **Projeyi Açın:** Visual Studio üzerinden `.sln` (Solution) dosyasını açın.
-3. **Derleyin:** Üst menüden **Start (Başlat)** butonuna basarak projeyi çalıştırın. `App.config` ayarı gerektirmez, evrensel bağlantı dizesi ile lokal sunucunuzu otomatik tanır.
+---
+
+## 🚀 Installation and Execution
+
+To run the system stably on your local machine, simply follow these steps:
+
+1. **Install the Database:** Open the **`MarketDB_Kurulum.sql`** file located in the `Database` folder via SQL Server Management Studio (SSMS) and click the `Execute` button. This will automatically set up all tables and the default admin account.
+2. **Open the Project:** Open the `.sln` (Solution) file using Visual Studio.
+3. **Compile and Run:** Click the **Start** button on the top menu to run the project. No `App.config` configuration is required; the universal connection string will automatically detect your local server.
+
+---
+
+*Developer: Baran*
+*Academic Project - Eskişehir Osmangazi University (ESOGÜ)*
