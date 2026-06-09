@@ -1,0 +1,14 @@
+# Visual Studio Gizli Klasörleri
+.vs/
+*.user
+*.suo
+
+# Derleme Klasörleri (Asla yüklenmemesi gerekenler)
+[Bb]in/
+[Oo]bj/
+[Pp]ackages/
+
+# Veritabaný loglarý ve geçici dosyalar
+*.mdf
+*.ldf
+*.log
