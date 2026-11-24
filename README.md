@@ -1,43 +1,70 @@
-﻿# 🛒 Retail Management System (Sanal Market)
 
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET_Framework-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![SQL Server](https://img.shields.io/badge/Database-SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
+# Retail Management System
 
-This project is a corporate desktop (Windows Forms) e-commerce automation tailored for the retail sector. It goes beyond basic CRUD operations to implement modern user experience (UX) standards and data security principles.
+A desktop retail management and shopping application
+developed as a university programming project using
+C#, Windows Forms, and Microsoft SQL Server.
 
----
+## Project Overview
 
-## 🔐 Administrator (Admin) Login and Test Accounts
+The project explores desktop application development,
+relational database management, and user authorization
+through a virtual shopping system.
 
-A default admin account is configured in the database so you can easily test the Administrator Control Center and restricted modules:
+## Features
 
-- **Email:** `admin@admin.com`
-- **Password:** `666666`
+- User registration and authentication
+- Administrator and customer interfaces
+- Dynamic shopping cart and price calculation
+- Product and user management
+- Database-driven address selection
+- Centralized database operations using ADO.NET
 
-*(Alternative: You can register as a new user from the login screen and instantly grant admin privileges by setting the `Yetki` (Authority) value to `1` (True) in the `Kullanicilar` table via SQL Server.)*
+## Technologies
 
----
+| Technology | Purpose |
+|---|---|
+| C# | Application logic |
+| Windows Forms | Desktop interface |
+| SQL Server | Relational database |
+| ADO.NET | Database connectivity |
+| SHA-256 | Password hashing demonstration |
 
-## 🏗️ Project Architecture and Key Features
+## Getting Started
 
-- **Cryptographic Security (SHA-256):** To ensure data security, user passwords are not stored as plain text. Instead, they are hashed end-to-end using the SHA-256 algorithm during the registration and login phases.
-- **Centralized Database Management:** All SQL operations are centrally managed through the `DatabaseHelper.cs` class using the ADO.NET architecture, strictly adhering to the DRY (Don't Repeat Yourself) principle.
-- **Dynamic Shopping Cart Module:** The button structure of items added to the cart instantly transforms into a `[-] [Quantity] [+]` format, and the total cart amount is updated dynamically.
-- **Relational Data (Cascading):** In address management, districts are fetched dynamically and filtered from the database based on the selected city.
-- **UI Protection:** `DataGridView` tables in the admin panel are locked against end-user manipulation to ensure design integrity and data security.
+### Prerequisites
 
----
+- Microsoft Visual Studio
+- Microsoft SQL Server
+- SQL Server Management Studio (SSMS)
 
-## 🚀 Installation and Execution
+### Installation
 
-To run the system stably on your local machine, simply follow these steps:
+1. Clone this repository.
+2. Execute the `MarketDB_Kurulum.sql` script
+   located in the `Database` directory.
+3. Open the `.sln` file in Visual Studio.
+4. Check the database connection settings.
+5. Build and run the application.
 
-1. **Install the Database:** Open the **`MarketDB_Kurulum.sql`** file located in the `Database` folder via SQL Server Management Studio (SSMS) and click the `Execute` button. This will automatically set up all tables and the default admin account.
-2. **Open the Project:** Open the `.sln` (Solution) file using Visual Studio.
-3. **Compile and Run:** Click the **Start** button on the top menu to run the project. No `App.config` configuration is required; the universal connection string will automatically detect your local server.
+## Known Limitations
 
----
+- Designed as an academic desktop application.
+- Requires a local SQL Server instance.
+- Password hashing and authentication require
+  further improvements for production use.
 
-*Developer: Baran*
-*Academic Project - Eskişehir Osmangazi University (ESOGÜ)*
+## Learning Objectives
+
+- Object-oriented programming
+- SQL queries and relational databases
+- Database integration in desktop applications
+- User interface development
+- Basic authentication and authorization
+
+## Author
+
+Baran Üncü
+
+Mathematics and Computer Science  
+Eskişehir Osmangazi University
